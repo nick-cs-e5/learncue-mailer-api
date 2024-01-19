@@ -9,7 +9,7 @@ const nodeMailer = require('nodemailer');
 const init = async () => {
 
   const server = Hapi.server({
-    port:  process.env.PORT || 3000,
+    port:  8000,
     host: '0.0.0.0'
   });
 
