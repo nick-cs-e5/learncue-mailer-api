@@ -9,8 +9,8 @@ const nodeMailer = require('nodemailer');
 const init = async () => {
 
   const server = Hapi.server({
-    port: 8000,
-    host: 'localhost'
+    port:  process.env.PORT || 3000,
+    host: '0.0.0.0'
   });
 
   // const uri = "mongodb+srv://test:XIKVNI9Rqd6MSewz@e5-cluster.uon5uro.mongodb.net/?retryWrites=true&w=majority";
