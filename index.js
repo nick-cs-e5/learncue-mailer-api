@@ -9,49 +9,16 @@ const nodeMailer = require('nodemailer');
 const init = async () => {
 
   const server = Hapi.server({
-    port:  8000,
-    host: '0.0.0.0'
+    port: 8000,
+    host: '0.0.0.0',
+    "routes" : {
+      "cors" : true
+    }
   });
 
-   server.route({
-        method: 'GET',
-        path: '/',
-        handler: (request, h) => {
-            return 'Hello World!';
-        }
-    });
+  await server.start();
 
-   server.route({
-        method: 'POST',
-        path: '/test-post',
-        handler: (request, h) => {
-            return 'Hello World!';
-        }
-    });
-
-  // const uri = "mongodb+srv://test:XIKVNI9Rqd6MSewz@e5-cluster.uon5uro.mongodb.net/?retryWrites=true&w=majority";
-
-  // const client = new MongoClient(uri, {
-  //   serverApi: {
-  //     version: ServerApiVersion.v1,
-  //     strict: true,
-  //     deprecationErrors: true,
-  //   }
-  // });
-
-  // async function run() {
-  //   try {
-  //     await client.connect();
-  //     await client.db("admin").command({ ping: 1 });
-  //     console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  //   } finally {
-  //     await client.close();
-  //   }
-  // }
-
-  // run().catch(console.dir);
-
-  // console.log('Connected to MongoDB');
+  console.log('Server running on %s', server.info.uri);
 
   server.route({
     method: 'POST',
@@ -104,10 +71,6 @@ const init = async () => {
       }
     },
   });
-
-  await server.start();
-
-  console.log('Server running on %s', server.info.uri);
 };
 
 process.on('unhandledRejection', (err) => {
