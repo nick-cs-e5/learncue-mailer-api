@@ -21,6 +21,14 @@ const init = async () => {
         }
     });
 
+   server.route({
+        method: 'POST',
+        path: '/test-post',
+        handler: (request, h) => {
+            return 'Hello World!';
+        }
+    });
+
   // const uri = "mongodb+srv://test:XIKVNI9Rqd6MSewz@e5-cluster.uon5uro.mongodb.net/?retryWrites=true&w=majority";
 
   // const client = new MongoClient(uri, {
