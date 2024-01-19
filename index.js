@@ -47,7 +47,7 @@ const init = async () => {
               name: "E5 Sales Team",
               address: "admin@learncue.com"
             },
-            to: ["anik@essential5.co.in"],
+            to: ["sameer@essential5.co.in"],
             subject: "LearnCue Enquiry",
             text: "Hello",
             html: html,
